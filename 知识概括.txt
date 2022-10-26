@@ -1,0 +1,12 @@
+直接去搜索文件夹
+rem.js:字体自适应设置
+request：axios实例设置默认请求地址
+request.home：首页请求
+
+使用经验:
+浏览器搜索vant组件库，进入移动端第三方组件库，下载安装
+
+开发时和发布时的域名时不一致的，开发一般是本地，发布时其他域名，使用一般我们都要进行二次封装，也就是学习axios那时的axios.default.baseURL，创建一个axios实例去设置一个默认的地址，方便后期统一修改维护
+
+运行项目前需要运行网易云接口进入NeteaseCloudMusicApi终端执行 node app.js
+再进入neteasemusic执行npm run serve(vue-cli搭建)
