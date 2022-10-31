@@ -7,6 +7,7 @@ import { getPhoneLogin } from "@/request/api/home.js";
 export const useMusicListItem = defineStore("MusicListItem", {
   state: () => {
     return {
+      // 某歌曲详情
       playList: {
         al: {
           id: 8521,

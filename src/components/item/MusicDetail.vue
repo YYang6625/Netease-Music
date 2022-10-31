@@ -140,6 +140,7 @@ export default {
       duration: null,
     };
   },
+  //歌词处理
   computed: {
     // 1.处理歌词，将每一行作为一个item，再进行切割，将不需要的一部分切割掉(split，slice，map)
     changeLyric() {

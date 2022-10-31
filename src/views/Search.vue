@@ -113,7 +113,7 @@ export default {
       if (state.keyWord != "") {
         // 小细节，添加到最前面，就会显示最新的数据
         state.keyWordList.unshift(state.keyWord);
-        //   利用set数据结构进行去重
+        // 利用set数据结构对搜索历史进行去重
         state.keyWordList = [...new Set(state.keyWordList)];
         localStorage.setItem(
           "keyWordList",
@@ -157,155 +157,155 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  .searchTop {
+.searchTop {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  padding: 0.2rem;
+  align-items: center;
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0.1rem;
+    margin-left: 0.2rem;
+    border-radius: 0.5rem;
+  }
+}
+.searchHistory {
+  width: 100%;
+  padding: 0 0.2rem;
+  height: 3rem;
+  overflow: hidden;
+  .title {
     display: flex;
     width: 100%;
-    height: 10%;
-    padding: 0.2rem;
-    align-items: center;
-    input {
-      height: 100%;
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      padding: 0.1rem;
-      margin-left: 0.2rem;
+    height: 20%;
+    margin-bottom: 0.05rem;
+    justify-content: space-between;
+    span {
       border-radius: 0.5rem;
-    }
-  }
-  .searchHistory {
-    width: 100%;
-    padding: 0 0.2rem;
-    height: 3rem;
-    overflow: hidden;
-    .title {
-      display: flex;
-      width: 100%;
-      height: 20%;
-      margin-bottom: 0.05rem;
-      justify-content: space-between;
-      span {
-        border-radius: 0.5rem;
-        padding: 0.1rem;
-        line-height: 0.4rem;
-        text-align: center;
-      }
-      .left {
-        background-color: #ddd;
-      }
-    }
-    .history {
-      width: 100%;
-      height: 80%;
-      padding: 0 0.2rem;
+      padding: 0.1rem;
+      line-height: 0.4rem;
       text-align: center;
-      overflow-y: scroll;
-      padding: 0 0.1rem;
-      span {
-        float: left;
-        border-radius: 0.5rem;
-        margin-right: 0.4rem;
-        padding: 0.1rem;
-        background-color: #ddd;
-        text-align: center;
-        line-height: 100%;
-        height: 22%;
-        margin-bottom: 0.1rem;
-      }
+    }
+    .left {
+      background-color: #ddd;
     }
   }
-  .itemListTop {
-    display: flex;
-    background-color: #fff;
-    padding: 0 0.15rem;
+  .history {
     width: 100%;
-    height: 1rem;
-    border-radius: 0.2rem 0.2rem 0 0;
-    justify-content: space-between;
-    align-items: center;
-    vertical-align: middle;
-    //   左边
-    .Top-left {
-      width: 20%;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    height: 80%;
+    padding: 0 0.2rem;
+    text-align: center;
+    overflow-y: scroll;
+    padding: 0 0.1rem;
+    span {
+      float: left;
+      border-radius: 0.5rem;
+      margin-right: 0.4rem;
+      padding: 0.1rem;
+      background-color: #ddd;
+      text-align: center;
       line-height: 100%;
-      font-weight: 700;
-      .icon {
-        fill: blue;
-      }
-      span {
-        font-size: 12px;
-        color: #ccc;
-      }
-    }
-    //   右边
-    .Top-right {
-      height: 0.6rem;
-      color: #fff;
-      line-height: 0.6rem;
-      background-color: red;
-      border-radius: 0.8rem;
-      span {
-        padding: 0 0.08rem;
-      }
+      height: 22%;
+      margin-bottom: 0.1rem;
     }
   }
-  .itemList {
-    padding-bottom: 1.2rem;
-  }
-  .item {
+}
+.itemListTop {
+  display: flex;
+  background-color: #fff;
+  padding: 0 0.15rem;
+  width: 100%;
+  height: 1rem;
+  border-radius: 0.2rem 0.2rem 0 0;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  //   左边
+  .Top-left {
+    width: 20%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 1.2rem;
-    line-height: 1.2rem;
-    padding: 0 0.15rem;
-    // 顶部左边
-    .item-left {
-      display: flex;
-      height: 1.2rem;
-      overflow: hidden;
-      .item-creator {
-        padding-left: 0.1rem;
-        height: 1.2rem;
-        .creator-song {
-          font-size: 0.35rem;
-          font-weight: 600;
-          line-height: 0.8rem;
-          width: 4.8rem;
-          height: 0.8rem;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
-        .creator-name {
-          height: 0.4rem;
-          line-height: 0.4rem;
-          font-size: 0.25rem;
-          font-weight: 400;
-          color: rgb(160, 85, 85);
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
-      }
+    line-height: 100%;
+    font-weight: 700;
+    .icon {
+      fill: blue;
     }
-    // 底部右边
-    .item-right {
-      display: flex;
-      height: 100%;
-      line-height: 100%;
-      justify-content: space-around;
-      align-items: center;
-      div {
-        padding: 0 0.2rem;
+    span {
+      font-size: 12px;
+      color: #ccc;
+    }
+  }
+  //   右边
+  .Top-right {
+    height: 0.6rem;
+    color: #fff;
+    line-height: 0.6rem;
+    background-color: red;
+    border-radius: 0.8rem;
+    span {
+      padding: 0 0.08rem;
+    }
+  }
+}
+.itemList {
+  padding-bottom: 1.2rem;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 0.15rem;
+  // 顶部左边
+  .item-left {
+    display: flex;
+    height: 1.2rem;
+    overflow: hidden;
+    .item-creator {
+      padding-left: 0.1rem;
+      height: 1.2rem;
+      .creator-song {
+        font-size: 0.35rem;
+        font-weight: 600;
+        line-height: 0.8rem;
+        width: 4.8rem;
+        height: 0.8rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
-      .icon {
-        fill: black;
+      .creator-name {
+        height: 0.4rem;
+        line-height: 0.4rem;
+        font-size: 0.25rem;
+        font-weight: 400;
+        color: rgb(160, 85, 85);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
   }
+  // 底部右边
+  .item-right {
+    display: flex;
+    height: 100%;
+    line-height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    div {
+      padding: 0 0.2rem;
+    }
+    .icon {
+      fill: black;
+    }
+  }
+}
 </style>
