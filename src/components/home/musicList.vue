@@ -12,15 +12,15 @@
       <!-- 使用vant组件库 -->
       <!-- 关闭轮播小图标（要动态绑定） -->
       <van-swipe
-        :loop="false"
-        :width="150"
+        :loop="true"
+        :width="130"
         class="my-swipe"
         :show-indicators="false"
       >
         <van-swipe-item
           v-for="playlist in musicList"
           :key="playlist"
-          style="width: 2.5rem"
+          style="width: 130px"
         >
           <router-link :to="{ path: '/musicitem', query: { id: playlist.id } }">
             <img :src="playlist.picUrl" alt="" />
@@ -43,7 +43,7 @@
 import { getMusicList } from "@/request/api/home.js";
 import { reactive } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
-import {mixinFuc} from "../../mixin.js";
+import { mixinFuc } from "../../mixin.js";
 export default {
   data() {
     return {
@@ -65,7 +65,7 @@ export default {
     //   }
     // },
   },
-  mixins:[mixinFuc],
+  mixins: [mixinFuc],
   // 在生命周期中去发送请求
   mounted() {
     this.MusicList();
@@ -114,7 +114,7 @@ export default {
     height: 4rem;
     img {
       width: 100%;
-      height: 150px;
+      height: 130px;
       border-radius: 0.2rem;
     }
     .icon {
